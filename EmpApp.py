@@ -128,7 +128,7 @@ def FetchData():
         print('EVERYTHING IS FINE TILL HERE')
         output["first_name"] = result[1]
         output["last_name"] = result[2]
-        output["primary_skills"] = result[3]
+        output["pri_skill"] = result[3]
         output["location"] = result[4]
         print(output["emp_id"])
         dynamodb_client = boto3.client('dynamodb', region_name=customregion)
@@ -154,7 +154,7 @@ def FetchData():
         cursor.close()
 
     return render_template("GetEmpOutput.html", id=output["emp_id"], fname=output["first_name"],
-                           lname=output["last_name"], interest=output["primary_skills"], location=output["location"],
+                           lname=output["last_name"], interest=output["pri_skill"], location=output["location"],
                            image_url=image_url)
 
 if __name__ == '__main__':
